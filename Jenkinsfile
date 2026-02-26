@@ -39,6 +39,7 @@ pipeline{
                 if docker service inspect website1 > /dev/null 2>&1; then
                     echo "Service exists. Performing rolling update..."
                     docker service update \
+		    --force \
                     --update-parallelism 1 \
                     --update-delay 10s \
                     --image pranaygupta1988/website1 \
